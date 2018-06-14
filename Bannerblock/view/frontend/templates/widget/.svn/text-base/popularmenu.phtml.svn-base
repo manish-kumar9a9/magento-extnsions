@@ -1,0 +1,24 @@
+<?php $isEnable = $this->helper('Ipragmatech\Bannerblock\Helper\Data')->getConfig('bannerblocksection/general/banneractive'); ?>
+<?php
+// 	$productCollection = $block->getProductCollection();
+	$categoryIds = $block->getCategoryList();
+?>
+<div class="popular-menu">
+	<div class="content-heading">
+       <h2 class="title"><?php echo $this->getTitle(); ?></h2>
+    </div>
+	<ul class="popular-menu-ul">
+		<?php if(count($categoryIds)):?>
+			<?php foreach ($categoryIds as $catrgoryId):?>
+			<?php $category = $this->getCategorymodel($catrgoryId)?>
+				<li class="popular-menu-li" >
+					<span class="pop-menu">
+						<a href="<?php echo $category->getUrl(); ?>">
+							<span class="cat-title"><?php echo $category->getName(); ?></span>
+						</a>
+					</span>
+				</li>
+			<?php endforeach;?>
+		<?php endif;?>
+	</ul>
+</div>

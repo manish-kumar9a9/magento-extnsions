@@ -1,0 +1,251 @@
+<?php
+	$isEnableCategory = $this->helper('Ipragmatech\Bannerblock\Helper\Data')->getConfig('bannerblocksection/general/banneractive');
+	$isSliderEnable = $this->helper('Ipragmatech\Bannerblock\Helper\Data')->getConfig('bannerblocksection/slider/slideractive');
+	$selectedCategoriesId = $this->helper('Ipragmatech\Bannerblock\Helper\Data')->getConfig('bannerblocksection/bannerblock_setting/bannerlist');
+	$canshowImg = $this->helper('Ipragmatech\Bannerblock\Helper\Data')->getConfig('bannerblocksection/bannerblock_setting/showimage');;
+	$categoryids = (explode(',',$selectedCategoriesId));
+	$sliderImages = $this->getSliderImages();
+	$media = $this->getImageMediaPath();
+	$width = 0;
+	$height = 0;
+	$width =  $this->helper('Ipragmatech\Bannerblock\Helper\Data')->getConfig('bannerblocksection/slider/sliderwidth');
+	$height = $this->helper('Ipragmatech\Bannerblock\Helper\Data')->getConfig('bannerblocksection/slider/sliderheight');
+	
+	$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+	$bestProducts = $this->getBestseller();
+	$featureProducts = $this->getFeatureProduct();
+	$newProducts = $this->getNewProducts();
+?>
+<?php if($isSliderEnable):?>
+<!-- Slider -->
+<div class="sliderslider">
+	<ul class="slides">
+      <?php foreach($sliderImages as $image):?>
+        <li>
+            <a href="<?=$image->getLink();?>" target="<?=$image->getTarget();?>"> 
+        		<img src="<?=$media.$image->getImage();?>" alt="<?=$image->getTitle();?>" title="<?=$image->getTitle();?>" />
+		    </a>
+		</li>
+        <?php endforeach;?>
+    </ul>
+</div>
+<script type="text/javascript">
+sh.noConflict();
+sh(document).ready(function() {
+	<?php if($width > 0):?>
+		sh('.sliderslider').css("width" , "<?php echo $width;?>px");
+	<?php endif;?>
+	<?php if($height > 0):?>
+	   // sh('.sliderslider').css("height" , "<?php echo $height;?>px");
+	<?php endif;?>
+	sh('.sliderslider').sliderslider();
+});
+</script>
+<?php endif;?>
+<!-- Slider -->
+<?php if(count($featureProducts)):?>
+    <div class="content-heading">
+       <h2 class="title">Feature Products</h2>
+    </div>
+    <div class="products-grid grid">
+        <ol class="product-items widget-product-grid">
+           <?php foreach ($featureProducts as $product):?>
+               <li class="product-item" style="width:235px;">
+                   <div class="product-item-info">
+                   		<a href="<?php echo $product->getProductUrl()?>" class="product-item-photo">
+							<span class="product-image-container" style="width:240px;">
+							    <span class="product-image-wrapper" style="padding-bottom: 125%;">
+							    <?php $productImage = $_imagehelper->init($product, 'category_page_grid')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(400)->getUrl(); ?>
+							        <img class="product-image-photo" src="<?php echo $productImage ?>" width="240" height="300" alt="<?php echo $product->getName()?>">
+							     </span>
+							</span>
+                         </a>
+                         <div class="product-item-details">
+                             <strong class="product-item-name">
+                                    <a title="Push It Messenger Bag" href="<?php echo $product->getProductUrl()?>" class="product-item-link">
+                                       <?php echo $product->getName()?>
+                                    </a>
+                              </strong>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="<?php $product->getEntityId()?>">
+							      <span class="price-container price-final_price tax weee">
+									  <span id="old-price-<?php $product->getEntityId()?>-widget-product-grid" data-price-amount="<?php $product->getPrice()?>" data-price-type="finalPrice" class="price-wrapper ">
+									 		<span class="price">$<?php echo $product->getPrice()?></span>  
+									  </span>
+								  </span>
+							 </div>
+                        </div>
+                   </div>
+               </li>
+            <?php endforeach;?>
+        </ol>
+     </div>
+  <?php  else : ?>
+	<div class="content-heading">
+       <h2 class="title">Feature Products</h2>
+    </div>
+	   <span class="hv-center">Currently there are no any items in this section.</span>
+<?php endif;?>
+<?php if(count($bestProducts)):?>
+    <div class="content-heading">
+       <h2 class="title">Best Sellers</h2>
+    </div>
+    <div class="products-grid grid">
+			        <ol class="product-items widget-product-grid">
+			           <?php foreach ($bestProducts as $product):?>
+			               <li class="product-item" style="width:240px;">
+			                   <div class="product-item-info">
+			                   		<a href="<?php echo $product->getProductUrl()?>" class="product-item-photo">
+										<span class="product-image-container" style="width:240px;">
+										    <span class="product-image-wrapper" style="padding-bottom: 125%;">
+										    <?php $productImage = $_imagehelper->init($product, 'category_page_grid')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(400)->getUrl(); ?>
+										        <img class="product-image-photo" src="<?php echo $productImage ?>" width="240" height="300" alt="<?php echo $product->getName()?>">
+										     </span>
+										</span>
+			                         </a>
+			                         <div class="product-item-details">
+			                             <strong class="product-item-name">
+			                                    <a title="Push It Messenger Bag" href="<?php echo $product->getProductUrl()?>" class="product-item-link">
+			                                       <?php echo $product->getName()?>
+			                                    </a>
+			                              </strong>
+			                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="<?php $product->getEntityId()?>">
+										      <span class="price-container price-final_price tax weee">
+												  <span id="old-price-<?php $product->getEntityId()?>-widget-product-grid" data-price-amount="<?php $product->getPrice()?>" data-price-type="finalPrice" class="price-wrapper ">
+												 		<span class="price">$<?php echo $product->getPrice()?></span>  
+												  </span>
+											  </span>
+										 </div>
+			                        </div>
+			                   </div>
+			               </li>
+			            <?php endforeach;?>
+			        </ol>
+			     </div>
+	<?php else:?>
+	 <div class="content-heading">
+       <h2 class="title">Best Seller</h2>
+    </div>
+	   <div class="hv-center">Currently there are no any items in this section.</div>
+	<?php endif;?>
+<?php if($isEnableCategory):?>
+<div class="category-list-widget">
+	<?php if(count($categoryids)):?>
+		<?php foreach ($categoryids as $cid):?>
+			<div class="category-container-widget">
+				<?php $rootCategory = $this->getCategorymodel($cid); ?>
+				<div class="category-heding-widget">
+			        	<a href="<?php echo $rootCategory->getUrl(); ?>" >
+			        		<?php if($canshowImg && $rootCategory->getImageUrl()):?>
+			        			<img alt="" width="100%" height="100px" src="<?php echo $rootCategory->getImageUrl() ?>"/>
+			        			<span class="content bg-white">
+						               <strong class="title">Now Shop by category</strong><br />
+						               <span class="info"><?php echo $rootCategory->getName(); ?></nobr> collection</span>
+						         </span>
+						       <div class="content-heading">
+							       <p class="info">More in <?php echo $rootCategory->getName(); ?></p>
+							 </div>
+			        		<?php else:?>
+				        		<div class="content-heading">
+							       <h2 class="title"><?php echo $rootCategory->getName(); ?></h2>
+							    </div>
+			        		<?php endif;?>
+			        	</a>
+		       	 </div>
+		       	 <div class="subcategory-container-widget">
+		       	 	<!-- sub category section -->
+		       	 	<?php $subcategories = $this->getChildCategories($rootCategory)?>
+		       	 	<?php if($subcategories): ?>
+		       	 		<div class="products-grid grid">
+        					<ol class="product-items widget-product-grid">
+			       	 	<?php foreach ($subcategories as $subcategoryId) : ?>
+			       	 	<?php $subcategory = $this->getCategorymodel($subcategoryId); ?>
+			       	 		<li class="product-item" style="width:250px;  padding-left:30px;">
+				       	 		 <div class="product-item-info">
+				       	 			<span>
+				       	 				<a href="<?php echo $subcategory->getUrl(); ?>">
+							        		<?php if($canshowImg && $subcategory->getImageUrl()):?>
+							        			<img class="sub-cat-image" alt=""  src="<?php echo $subcategory->getImageUrl() ?>" width="240" height="300"/>
+							        		<?php endif;?><br/>
+							        		<span class="cat-title"><?php echo $subcategory->getName(); ?></span>
+							        	</a>
+				       	 			</span>
+				       	 		</div>
+			       	 		</li>
+			       	 	<?php endforeach;?>
+			       	 	</ol>
+			       	 	</div>
+		       	 	<?php endif;?>
+		       	 </div>
+	       	</div>
+		<?php endforeach;?>
+	<?php endif;?>
+ </div>
+ <?php endif;?>
+ 
+<?php if($newProducts):?>
+	<div class="content-heading">
+       <h2 class="title">New Products</h2>
+       <p class="info">Here is what`s trending on Luma right now</p>
+    </div>
+    <div class="block-content">
+    <div class="products-grid grid">
+        <ol class="product-items widget-product-grid">
+           <?php foreach ($newProducts as $product):?>
+               <li class="product-item" style="width:240px">
+                   <div class="product-item-info">
+                   		<a href="<?php echo $product->getProductUrl()?>" class="product-item-photo">
+							<span class="product-image-container" style="width:240px;">
+							    <span class="product-image-wrapper" style="padding-bottom: 125%;">
+							    <?php $productImage = $_imagehelper->init($product, 'category_page_grid')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(400)->getUrl(); ?>
+							        <img class="product-image-photo" src="<?php echo $productImage ?>" width="240" height="300" alt="<?php echo $product->getName()?>">
+							     </span>
+							</span>
+                         </a>
+                         <div class="product-item-details">
+                             <strong class="product-item-name">
+                                    <a title="Push It Messenger Bag" href="<?php echo $product->getProductUrl()?>" class="product-item-link">
+                                       <?php echo $product->getName()?>
+                                    </a>
+                              </strong>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="<?php $product->getEntityId()?>">
+							      <span class="price-container price-final_price tax weee">
+									  <span id="old-price-<?php $product->getEntityId()?>-widget-product-grid" data-price-amount="<?php $product->getPrice()?>" data-price-type="finalPrice" class="price-wrapper ">
+									 		<span class="price">$<?php echo $product->getPrice()?></span>  
+									  </span>
+								  </span>
+							 </div>
+                        </div>
+                   </div>
+               </li>
+            <?php endforeach;?>
+        </ol>
+     </div>
+     </div>
+</div>
+<?php endif;?>
+
+<?php
+	$categoryIds = $this->getCategoryList();
+?>
+<div class="popular-menu">
+	<div class="content-heading">
+		<h2 class="title"><?php echo $this->getpopularmenuTitle(); ?></h2>
+	</div>
+	<ul class="popular-menu-ul">
+		<?php if(count($categoryIds)):?>
+			<?php foreach ($categoryIds as $catrgoryId):?>
+			<?php $category = $this->getCategorymodel($catrgoryId)?>
+				<li class="popular-menu-li" >
+					<span class="pop-menu">
+						<a href="<?php echo $category->getUrl(); ?>">
+							<span class="cat-title"><?php echo $category->getName(); ?></span>
+						</a>
+					</span>
+				</li>
+			<?php endforeach;?>
+		<?php endif;?>
+	</ul>
+</div>
+<style>
+
+</style>

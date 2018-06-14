@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/magento2_api/!svn/ver/12/trunk/app/code/Ipragmatech/Bannerblock/Controller/Adminhtml/slider
+END
+Save.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/magento2_api/!svn/ver/8/trunk/app/code/Ipragmatech/Bannerblock/Controller/Adminhtml/slider/Save.php
+END
+Delete.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/magento2_api/!svn/ver/8/trunk/app/code/Ipragmatech/Bannerblock/Controller/Adminhtml/slider/Delete.php
+END
+Edit.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/magento2_api/!svn/ver/12/trunk/app/code/Ipragmatech/Bannerblock/Controller/Adminhtml/slider/Edit.php
+END
+MassDelete.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/magento2_api/!svn/ver/8/trunk/app/code/Ipragmatech/Bannerblock/Controller/Adminhtml/slider/MassDelete.php
+END
+Index.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/magento2_api/!svn/ver/8/trunk/app/code/Ipragmatech/Bannerblock/Controller/Adminhtml/slider/Index.php
+END
+MassStatus.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/magento2_api/!svn/ver/8/trunk/app/code/Ipragmatech/Bannerblock/Controller/Adminhtml/slider/MassStatus.php
+END
+NewAction.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/magento2_api/!svn/ver/12/trunk/app/code/Ipragmatech/Bannerblock/Controller/Adminhtml/slider/NewAction.php
+END

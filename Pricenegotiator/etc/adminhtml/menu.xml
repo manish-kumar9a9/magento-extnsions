@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Ipragmatech. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Ipragmatech_Pricenegotiator::ipragmatech_negotiator_index" title="Price Negotiator" module="Ipragmatech_Pricenegotiator" sortOrder="20" dependsOnModule="Ipragmatech_Pricenegotiator" action="pricenegotiator/negotiator/index" resource="Ipragmatech_Pricenegotiator::ipragmatech_negotiator_index"/>
+<!--AddMenu-->
+    </menu>
+</config>

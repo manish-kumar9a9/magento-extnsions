@@ -1,0 +1,11 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+       <!-- <css src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>  -->
+   	 <css src="Ipragmatech_Pricenegotiator::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="product.info.price"  >
+            <block name="ipragmatech_pricenegotiator.negotiateprice" class="Ipragmatech\Pricenegotiator\Block\Catalog\Product\Negotiateprice" before="product.info.sku" template="product/view.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

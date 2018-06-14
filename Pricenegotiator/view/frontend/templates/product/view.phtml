@@ -1,0 +1,190 @@
+<?php
+	$saveUrl = $block->getUrl('pricenegotiator/pricequery/savequery');
+	$statusUrl = $block->getUrl('pricenegotiator/pricequery/checkquery');
+	$objectManager	 = \Magento\Framework\App\ObjectManager::getInstance();
+	$currencysymbol	 = $objectManager->get('Magento\Directory\Model\Currency')->getCurrencySymbol();
+	$objectManager	 = \Magento\Framework\App\ObjectManager::getInstance();
+	$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+	$queryInitated = 0; 
+	
+	if($customerSession->isLoggedIn()) {
+		$customerId 	= $customerSession->getCustomerId();
+		$customerName 	= $customerSession->getCustomer()->getName();
+		$customerEmail	= $customerSession->getCustomer()->getEmail();
+	
+		$pro = $this->getQueryProduct();//$objectManager->get('Magento\Framework\Registry')->registry('current_product');
+		if($pro){
+			$productId 	 = $pro->getId();
+			$productName = $pro->getName();
+			$productSku	 = $pro->getSku();
+			$productPrice = $pro->getFinalPrice();
+			$data = $this->getNegotiateInfo($productId, $customerId);
+			if($data){
+				if($data['status'] == 0){
+				 $queryInitated = 1;
+				}else{
+					$queryInitated = 0;
+				}
+			}
+		}
+	}
+	$enableNegotiator = $this->helper('Ipragmatech\Pricenegotiator\Helper\Data')->getConfig('pricenegotiatorsection/general/active');
+?>
+
+<?php if($enableNegotiator):?>
+
+<div id="nego-offer-container" class="nego-price-offer-container" >
+	<div id="nego-load" style="display:none;">Loading... Please wait</div>
+	<?php if($customerSession->isLoggedIn()) :?>
+		<div class="nego-price-offer" >
+			<?php if(count($data)): ?>
+				<div class="nego-offerdata">
+					<?php if($data['status'] == 0):?>
+						<div class="accepted-messsage">
+							<label>Price Negotiation Query already sent.</label>
+						</div>
+					<?php elseif ($data['status'] == 1):?>
+					<?php $queryInitated = 0; ?>
+						<div class="Accepted-messsage-box">
+							<label>Price for You : <span class="new-price"><?php echo $data['new_price'] ?></span></label>
+							<div class="note" id="neo-coupon-msg">Use this coupon code#</div>
+							<div class="coupon-box">
+								<label><span class="coupon-code" ><?php echo $data['coupon'] ?></span></label>
+							</div>
+<!-- 							<div class="note" id="neo-coupon-msg">Valid till 24 Hours.</div> -->
+						</div>
+					<?php elseif ($data['status'] == 2):?>
+						<div class="rejected-messsage">
+						<?php $queryInitated = 0; ?>
+							<label>Price Negotiation Query Rejected.</label>
+						</div>
+					<?php endif;?>
+				</div>
+			<?php else: ?>
+				<div class="nego-price-button">
+					<button type="button" id="np-offer" data-bind="click: makeQuery" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Negotiate Price</button>
+				</div>
+			<?php endif;?>
+		</div>
+		<div id="popup-mpdal" class="no-display">
+		   <form id="offer-form" action="<?php echo $saveUrl?>">
+			    <input type="hidden" name="form_key" 			value="<?php echo $this->getFormKey(); ?>" />
+			    <input type="hidden" name="neo-product-id"		value="<?php echo $productId; ?>" />
+			    <input type="hidden" name="neo-product-name" 	value="<?php echo $productName; ?>" />
+			    <input type="hidden" name="neo-product-sku" 	value="<?php echo $productSku; ?>" />
+			    <input type="hidden" name="neo-product-price" 	value="<?php echo $productPrice; ?>" />
+			    <input type="hidden" name="neo-customer-id" 	value="<?php echo $customerId; ?>" />
+			    <input type="hidden" name="neo-customer-name" 	value="<?php echo $customerName; ?>" />
+			    <input type="hidden" name="neo-customer-email" 	value="<?php echo $customerEmail; ?>" />
+			    
+		   		<label for="customer-price">Enter Price<?php //echo $currencysymbol;?></label>
+		   		<input required="required" data-validate="{required:true, 'validate-number':true}" type="number" name="customer-price" id="customer-price" />
+		   		<label for="customer-message">Message</label>
+		   		<textarea rows="4" cols="3" name="customer-message" id="customer-message"></textarea>
+		   		<script>
+				require([
+				    'jquery',
+				    'mage/mage'
+				], function($){
+				    var dataForm = $('#offer-form');
+				    var ignore = null;
+				    dataForm.mage('validation', {
+				            ignore: ignore ? ':hidden:not(' + ignore + ')' : ':hidden'
+				        }).find('input:text').attr('autocomplete', 'off');
+				
+				});
+				</script>
+		   </form>
+		</div>
+		<script>
+		function makeQuery(){
+		    require(
+		        [
+		            'jquery',
+		            'Magento_Ui/js/modal/modal',
+		            'Ipragmatech_Pricenegotiator/js/negotiator'
+		        ],
+		        function(
+		            $,
+		            modal
+		        ) {
+		            var options = {
+		                type: 'popup',
+		                responsive: true,
+		               // innerScroll: true,
+		                title: 'Negotiate Price',
+		                modalClass:'nego-price-modal',
+		                buttons: [{
+		                    text: $.mage.__('Cancel'),
+		                    class: '',
+		                    click: function () {
+		                        this.closeModal();
+		                    }
+		                },
+		                {
+			                text: $.mage.__('Save'),
+			                class: '',
+			               click: saveNQuey,
+// 			                click:function () {
+// 			                	$('#offer-form').submit();
+// 		                    }
+		                }
+		                ]
+		            };
+		
+		            var popup = modal(options, $('#popup-mpdal'));
+		            $('#popup-mpdal').modal('openModal');
+		        }
+		    );
+		}
+		</script>
+	<?php else:?>
+		<div class="nego-price-offer" >
+			<div class="nego-rice-button">
+				<button type="button" id="np-offer" data-bind="" class="btn btn-info btn-lg" data-toggle="modal" disabled="disabled"  data-target="#myModal">Negotiate Price</button>
+				<div class="note nego-login-msg" id="neo-offer-applay">Please login to Negotiate price.</div>
+			</div>
+		</div>
+	<?php endif;?>
+	<script>
+	function saveNQuey(){
+		jQuery('#nego-load').css("display", "block");
+		jQuery('#np-offer').css("display", "none");
+		var urlq = '<?php echo $saveUrl?>';
+		var formdata = jQuery("#offer-form").serializeArray();
+		jQuery.ajax( {
+		    url: urlq,
+		    data:formdata,
+		    type: 'POST'
+		}).done(function(result) { 
+			jQuery('#nego-load').css("display", "none");
+		    jQuery("#nego-offer-container").html(result);
+		}).fail(function ( error ){
+			jQuery('#nego-load').css("display", "none");
+	        alert('Getting error');
+	    });
+		this.closeModal();
+	}
+	function getNQuey(){
+		var queryInitated = '<?php echo $queryInitated; ?>';
+		if(queryInitated == 1 || queryInitated == '1' ){
+			var urlq = '<?php echo $statusUrl?>';
+			jQuery.ajax( {
+			    url: urlq,
+			    data:{},
+			    type: 'GET'
+			}).done(function(result) { 
+			    jQuery("#nego-offer-container").html(result);
+			}).fail(function ( error ){
+		        //alert('Getting error');
+				//console.log(error);
+		    });
+		}
+	}
+	setInterval(function() {
+			getNQuey();
+		}, 15000);
+	</script>
+  </div>
+<?php endif;?>
+

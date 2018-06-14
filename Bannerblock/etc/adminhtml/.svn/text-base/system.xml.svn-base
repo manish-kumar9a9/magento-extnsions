@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+  <system>
+        <tab id="blockbanner" translate="label" sortOrder="10">
+             <label>Ipragmatech Extension</label>
+        </tab>
+	    <section id="bannerblocksection" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Banner Block</label>
+			<tab>blockbanner</tab>
+			<resource>Ipragmatech_Bannerblock::config_bannerblock</resource>
+			<group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>General</label>
+				<field id="banneractive" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="slider" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Slider</label>
+				<field id="slideractive" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Enable Slider</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="slidergroup" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Slider Group</label>
+					<source_model>Ipragmatech\Bannerblock\Model\Config\Source\Slidergroup</source_model>
+					 <comment> <![CDATA[Please select group for the slider]]></comment>
+				</field>
+				<field id="sliderwidth" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Slider Width</label>
+					<validate>validate-greater-than-zero</validate>
+					<comment> <![CDATA[Slider width eg. 100, Please don't use any suffix like px etc. Leave blank for full width.]]></comment>
+				</field>
+				<!-- <field id="sliderheight" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Slider Height</label>
+					<validate>validate-greater-than-zero</validate>
+					<comment> <![CDATA[Slider height eg. 100, Please don't use any suffix like px etc.]]></comment>
+				</field>-->
+			</group>
+			 <group id="bannerblock_setting" translate="label" type="text" delault="1" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+            	<label>Banner Block Setting</label>
+				<field id="bannerlist" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Select Category</label>
+					<source_model>Ipragmatech\Bannerblock\Model\Config\Source\Bannerlist</source_model>
+				</field>
+				<field id="showimage" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Image for Category</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field> 
+            </group>
+             <group id="popularmenu" translate="label" type="text" delault="1" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+            	<label>Popular Menu Setting</label>
+            	<field id="title" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Menu Title</label>
+                    <comment> <![CDATA[Enter Title for popular menu]]></comment>
+                </field>
+				<field id="setting" translate="label" type="multiselect" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Popular Menu</label>
+					<source_model>Ipragmatech\Bannerblock\Model\Config\Source\Popularmenu</source_model>
+					<comment> <![CDATA[Select category for popular menu]]></comment>
+				</field>
+            </group> 
+            <group id="newproduct" translate="label" type="text" delault="1" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+            	<label>New Product </label>
+            	<field id="new_product_qty" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>New Product Qty</label>
+					<source_model>Ipragmatech\Bannerblock\Model\Config\Source\Maxqty</source_model>
+					<comment> <![CDATA[No of new product display.]]></comment>
+				</field>
+            </group> 
+            <group id="topchoice" translate="label" type="text" delault="1" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+            	<label>Feature and Bestseller </label>
+            	<field id="feature_product_qty" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Feature Product Qty</label>
+					<source_model>Ipragmatech\Bannerblock\Model\Config\Source\Maxqty</source_model>
+					<comment> <![CDATA[No of feature product to display display. ]]></comment>
+				</field>
+				<field id="bestseller_product_qty" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Bestseller Product Qty</label>
+					<source_model>Ipragmatech\Bannerblock\Model\Config\Source\Maxqty</source_model>
+					<comment> <![CDATA[No of bestselle product to diplay display.]]></comment>
+				</field>
+            </group> 
+		</section>
+	</system>
+</config>

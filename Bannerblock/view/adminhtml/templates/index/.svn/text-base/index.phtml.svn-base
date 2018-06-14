@@ -1,0 +1,13 @@
+<?php
+/**
+ * Copyright © 2015 ipragmatechcommerce. All rights reserved.
+ */
+?>
+<?php
+/**
+ * {{controller}} {{action}} template
+ *
+ * @var $block \Ipragmatech\Bannerblock\Block\Adminhtml\Index\Index
+ */
+?>
+update content from Bannerblock\view\adminhtml\templates\index\index.phtml

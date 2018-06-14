@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+.nego-price-modal{
+	width:50%;
+	margin:0px auto;
+}
+.no-display{
+	display: none;
+}
+.nego-price-modal  button.action-close span{
+	color:#ef2929	;
+}
+.rejected-messsage{
+	color:#ef2929;
+	font-size: 16px;
+}
+.coupon-box {
+    border: 2px dotted #4e9a06;
+    padding: 2px;
+    text-align: center;
+    font-size: 16px;
+    font-weight:bold;
+    color: #4e9a06;
+    margin-bottom: 5px;
+}
+.new-price{
+	 font-weight:bold;
+}
+.nego-login-msg{
+	color:#1979c3;
+}
+.accepted-messsage{
+	color: #4e9a06;
+}
+#nego-load{
+	color:#4e9a06;
+	border:1px dotted #4e9a06;
+	z-index:1;
+	background:#f7f7f7;
+	text-align:center;
+	line-height:40px;
+}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/magento2_api/!svn/ver/25/trunk/app/code/Ipragmatech/Bannerblock/etc/adminhtml
+END
+routes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/etc/adminhtml/routes.xml
+END
+menu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/etc/adminhtml/menu.xml
+END
+system.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/magento2_api/!svn/ver/25/trunk/app/code/Ipragmatech/Bannerblock/etc/adminhtml/system.xml
+END

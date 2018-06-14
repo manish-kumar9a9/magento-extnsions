@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+     <update handle="editor"/>
+    <body>
+	   <referenceContainer name="content">
+            <block class="Ipragmatech\Pricenegotiator\Block\Adminhtml\Negotiator\Edit" name="pricenegotiator_negotiator_edit"/>
+        </referenceContainer>
+		 <referenceContainer name="left">
+            <block class="Ipragmatech\Pricenegotiator\Block\Adminhtml\Negotiator\Edit\Tabs" name="pricenegotiator_negotiator_edit_tabs">
+				<block class="Ipragmatech\Pricenegotiator\Block\Adminhtml\Negotiator\Edit\Tab\Manageprice" name="pricenegotiator_negotiator_edit_tab_manageprice"/>
+				 <action method="addTab">
+                    <argument name="name" xsi:type="string">manageprice_section</argument>
+                    <argument name="block" xsi:type="string">pricenegotiator_negotiator_edit_tab_manageprice</argument>
+                </action>
+				<!--CedAddTab-->
+			</block>
+        </referenceContainer>
+    </body>
+</page>

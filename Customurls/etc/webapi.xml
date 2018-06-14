@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- /** * Copyright © 2015 Ipragmatech . All rights reserved. */ -->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<!-- Routing define -->
+	<route url="/V1/url/aboutus" method="GET">
+		<service class="Ipragmatech\Customurls\Api\UrlInterface"
+			method="getAboutusUrl" />
+		<resources>
+			<resource ref="anonymous" />
+		</resources>
+	</route>
+
+	<route url="/V1/url/contact" method="GET">
+		<service class="Ipragmatech\Customurls\Api\UrlInterface"
+				 method="getContactUrl" />
+		<resources>
+			<resource ref="anonymous" />
+		</resources>
+	</route>
+
+	<route url="/V1/url/service" method="GET">
+		<service class="Ipragmatech\Customurls\Api\UrlInterface"
+				 method="getCustomerServiceUrl" />
+		<resources>
+			<resource ref="anonymous" />
+		</resources>
+	</route>
+
+	<route url="/V1/url/policy" method="GET">
+		<service class="Ipragmatech\Customurls\Api\UrlInterface"
+				 method="getPolicyUrl" />
+		<resources>
+			<resource ref="anonymous" />
+		</resources>
+	</route>
+</routes>

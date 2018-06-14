@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/magento2_api/!svn/ver/19/trunk/app/code/Ipragmatech/Bannerblock/Block
+END
+Bannerhomepage.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/magento2_api/!svn/ver/19/trunk/app/code/Ipragmatech/Bannerblock/Block/Bannerhomepage.php
+END
+Slider.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/Block/Slider.php
+END
+Context.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/Block/Context.php
+END
+BaseBlock.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/Block/BaseBlock.php
+END

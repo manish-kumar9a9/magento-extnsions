@@ -1,0 +1,29 @@
+{
+  "name": "ipragmatech/module-customurls",
+  "description": "N/A",
+  "require": {
+    "php": "~5.6.0|~7.0.0"
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Manish Kumar",
+      "email": "manish.kumar@ipragmatech.com",
+      "homepage": "https://www.ipragmatech.com/",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Ipragmatech\\Customurls\\":""
+    }
+  }
+}

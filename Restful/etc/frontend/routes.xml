@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- /** * Copyright © 2015 Ipragmatech . All rights reserved. */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/App/etc/routes.xsd">
+	<router id="standard">
+		<route id="restful" frontName="restful">
+			<module name="Ipragmatech_Restful" />
+		</route>
+	</router>
+</config>

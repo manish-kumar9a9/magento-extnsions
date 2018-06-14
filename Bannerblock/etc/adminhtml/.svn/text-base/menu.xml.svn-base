@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Ipragmatech. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Ipragmatech_Bannerblock::ipragmatech_indexindex" title="Banner Block" module="Ipragmatech_Bannerblock" parent="" sortOrder="20" dependsOnModule="Ipragmatech_Bannerblock" action="bannerblock/index/index" resource="Ipragmatech_Bannerblock::ipragmatech_indexindex"/>
+<!--AddMenu-->
+        <add id="Ipragmatech_Bannerblock::slider" parent="Ipragmatech_Bannerblock::ipragmatech_indexindex" title="Ipragmatech slider" module="Ipragmatech_Bannerblock" sortOrder="1"  action="bannerblock/slider" resource="Ipragmatech_Bannerblock::slider"/>
+    </menu>
+</config>

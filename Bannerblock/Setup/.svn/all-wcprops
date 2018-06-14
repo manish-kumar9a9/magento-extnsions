@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/Setup
+END
+InstallData.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/Setup/InstallData.php
+END
+InstallSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/Setup/InstallSchema.php
+END

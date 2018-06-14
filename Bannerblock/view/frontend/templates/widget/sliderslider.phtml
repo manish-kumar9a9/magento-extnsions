@@ -1,0 +1,28 @@
+<?php
+	$sliderImages = $this->getSliderImages();
+	$media = $this->getImageMediaPath();
+	$width =  $this->getSliderwidth();
+?>
+<!-- sliderslider -->
+    <div class="sliderslider">
+      <ul class="slides">
+      <?php foreach($sliderImages as $image):?>
+        <li>        
+        <a href="<?=$image->getLink();?>" target="<?=$image->getTarget();?>">
+        <img src="<?=$media.$image->getImage();?>" alt="<?=$image->getTitle();?>" title="<?=$image->getTitle();?>" />
+        </a>
+        </li>
+        <?php endforeach;?>
+      </ul>
+    </div>
+<!-- sliderslider -->
+<script type="text/javascript">
+sh.noConflict();
+sh(document).ready(function() {
+	<?php if($width > 0):?>
+		sh('.sliderslider').css("width" , "<?php echo $width;?>px");
+	<?php endif;?>
+	sh('.sliderslider').sliderslider();
+});
+
+</script>

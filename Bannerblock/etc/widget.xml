@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="lisi_widget" class="Ipragmatech\Bannerblock\Block\Widget\Listwidget">
+		<label>Ipragmatech List Widget</label>
+		<description>Custom List Widget</description>
+	</widget>
+	<widget id="popularmenu" class="Ipragmatech\Bannerblock\Block\Widget\Popularmenu">
+		<label>Ipragmatech Popular Menu Widget</label>
+		<description>Custom Pouplar Menu List Widget</description>
+	</widget>
+	<widget id="featureproduct" class="Ipragmatech\Bannerblock\Block\Widget\Feature">
+		<label>Ipragmatech Feature Product</label>
+		<description>Ipragmatech Feature product list widget</description>
+	</widget>
+	<widget id="ipragmatech_sliderslider" class="Ipragmatech\Bannerblock\Block\Widget\SliderSlider">
+                <label translate="true">Slider Slider</label>
+                <description>Insert Slider Slider by Group</description>
+                <parameters>
+                	<parameter name="group" xsi:type="select" required="true" visible="true"
+                		source_model="Ipragmatech\Bannerblock\Model\Config\SliderGroups">
+						<label translate="true">Group</label>
+					</parameter>
+                    <parameter name="sliderwidth" xsi:type="text"  visible="true" sort_order="2" >
+						<label translate="true">Slider Width</label>
+                    </parameter>
+                </parameters>
+        </widget>
+</widgets>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/view/adminhtml/layout
+END
+bannerblock_slider_edit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/view/adminhtml/layout/bannerblock_slider_edit.xml
+END
+bannerblock_slider_grid.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/view/adminhtml/layout/bannerblock_slider_grid.xml
+END
+bannerblock_slider_index.xml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/view/adminhtml/layout/bannerblock_slider_index.xml
+END
+bannerblock_slider_new.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/view/adminhtml/layout/bannerblock_slider_new.xml
+END
+bannerblock_index_index.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/magento2_api/!svn/ver/4/trunk/app/code/Ipragmatech/Bannerblock/view/adminhtml/layout/bannerblock_index_index.xml
+END

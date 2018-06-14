@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <tab id="ipragmatech" translate="label" sortOrder="10">
+            <label>Ipragmatech Extensions</label>
+        </tab>
+
+        <section id="custom_url" translate="label" type="text"
+                 sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Custom Urls</label>
+            <tab>ipragmatech</tab>
+            <resource>Ipragmatech_Customurls::config_customurls</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="1"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="about_us" translate="label" type="text"
+                       sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>About us</label>
+                    <comment><![CDATA[Please Enter the About us page Url eg: about-us or about/about-us etc.]]></comment>
+                    <!--<validate>required-entry</validate>-->
+                </field>
+
+                <field id="contact_us" translate="label" type="text"
+                       sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact us</label>
+                    <comment><![CDATA[Please Enter the Contact us page Url eg: contact-us or about/contact-us etc.]]></comment>
+                    <!--<validate>required-entry</validate>-->
+                </field>
+
+                <field id="policy" translate="label" type="text"
+                       sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Terms-condition/Policy</label>
+                    <comment><![CDATA[Please Enter the policy us page Url eg: policy or policy/terms-condition etc.]]></comment>
+                   <!-- <validate>required-entry</validate>-->
+                </field>
+
+                <field id="customer_service" translate="label" type="text"
+                       sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Service</label>
+                    <comment><![CDATA[Please Enter the Customer service page Url eg: customer-service or about/customer-us etc.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

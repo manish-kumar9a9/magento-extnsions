@@ -1,0 +1,21 @@
+{
+    "name": "ipragmatech/module-orders",
+    "description": "Module to list the order item with custom options",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "info@mage2gen.com",
+            "name": "Mage2Gen"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Ipragmatech\\Orders\\": ""
+        }
+    }
+}

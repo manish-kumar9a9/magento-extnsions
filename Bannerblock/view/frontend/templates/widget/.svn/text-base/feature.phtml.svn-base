@@ -1,0 +1,90 @@
+<?php 
+	$featureProducts = $this->getFeatureProducts();
+	$bestProducts = $this->getBestProduct();
+	$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+?>
+
+<?php if(count($featureProducts)):?>
+    <div class="content-heading">
+       <h2 class="title">Feature Products</h2>
+    </div>
+    <div class="products-grid grid">
+        <ol class="product-items widget-product-grid">
+           <?php foreach ($featureProducts as $product):?>
+               <li class="product-item" style="width:235px;">
+                   <div class="product-item-info">
+                   		<a href="<?php echo $product->getProductUrl()?>" class="product-item-photo">
+							<span class="product-image-container" style="width:240px;">
+							    <span class="product-image-wrapper" style="padding-bottom: 125%;">
+							    <?php $productImage = $_imagehelper->init($product, 'category_page_grid')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(400)->getUrl(); ?>
+							        <img class="product-image-photo" src="<?php echo $productImage ?>" width="240" height="300" alt="<?php echo $product->getName()?>">
+							     </span>
+							</span>
+                         </a>
+                         <div class="product-item-details">
+                             <strong class="product-item-name">
+                                    <a title="Push It Messenger Bag" href="<?php echo $product->getProductUrl()?>" class="product-item-link">
+                                       <?php echo $product->getName()?>
+                                    </a>
+                              </strong>
+                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="<?php $product->getEntityId()?>">
+							      <span class="price-container price-final_price tax weee">
+									  <span id="old-price-<?php $product->getEntityId()?>-widget-product-grid" data-price-amount="<?php $product->getPrice()?>" data-price-type="finalPrice" class="price-wrapper ">
+									 		<span class="price">$<?php echo $product->getPrice()?></span>  
+									  </span>
+								  </span>
+							 </div>
+                        </div>
+                   </div>
+               </li>
+            <?php endforeach;?>
+        </ol>
+     </div>
+  <?php  else : ?>
+	<div class="content-heading">
+       <h2 class="title">Feature Products</h2>
+    </div>
+	   <span class="hv-center">Currently there are no any items in this section.</span>
+<?php endif;?>
+<?php if(count($bestProducts)):?>
+    <div class="content-heading">
+       <h2 class="title">Best Sellers</h2>
+    </div>
+    <div class="products-grid grid">
+			        <ol class="product-items widget-product-grid">
+			           <?php foreach ($bestProducts as $product):?>
+			               <li class="product-item" style="width:240px;">
+			                   <div class="product-item-info">
+			                   		<a href="<?php echo $product->getProductUrl()?>" class="product-item-photo">
+										<span class="product-image-container" style="width:240px;">
+										    <span class="product-image-wrapper" style="padding-bottom: 125%;">
+										    <?php $productImage = $_imagehelper->init($product, 'category_page_grid')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(400)->getUrl(); ?>
+										        <img class="product-image-photo" src="<?php echo $productImage ?>" width="240" height="300" alt="<?php echo $product->getName()?>">
+										     </span>
+										</span>
+			                         </a>
+			                         <div class="product-item-details">
+			                             <strong class="product-item-name">
+			                                    <a title="Push It Messenger Bag" href="<?php echo $product->getProductUrl()?>" class="product-item-link">
+			                                       <?php echo $product->getName()?>
+			                                    </a>
+			                              </strong>
+			                              <div class="price-box price-final_price" data-role="priceBox" data-product-id="<?php $product->getEntityId()?>">
+										      <span class="price-container price-final_price tax weee">
+												  <span id="old-price-<?php $product->getEntityId()?>-widget-product-grid" data-price-amount="<?php $product->getPrice()?>" data-price-type="finalPrice" class="price-wrapper ">
+												 		<span class="price">$<?php echo $product->getPrice()?></span>  
+												  </span>
+											  </span>
+										 </div>
+			                        </div>
+			                   </div>
+			               </li>
+			            <?php endforeach;?>
+			        </ol>
+			     </div>
+	<?php else:?>
+	 <div class="content-heading">
+       <h2 class="title">Best Seller</h2>
+    </div>
+	   <div class="hv-center">Currently there are no any items in this section.</div>
+	<?php endif;?>

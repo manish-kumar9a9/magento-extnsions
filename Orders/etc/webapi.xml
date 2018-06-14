@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route method="GET" url="/V1/ipragmatech-orders/itemslist">
+		<service class="Ipragmatech\Orders\Api\OrdersitemsManagementInterface" method="getOrdersitems"/>
+		<resources>
+			<resource ref="Magento_Sales::sales" />
+		</resources>
+	</route>
+	<route method="GET" url="/V1/ipragmatech-orders/items">
+		<service class="Ipragmatech\Orders\Api\OrdersitemsManagementInterface" method="getList"/>
+		<resources>
+			<!-- <resource ref="anonymous"/>-->
+			<resource ref="Magento_Sales::sales" />
+		</resources>
+	</route>
+</routes>

@@ -1,0 +1,16 @@
+<?php $formurl = $block->getUrl('registration/index/sendotp'); ?>
+<form class="form create account form-create-account" action="<?php /* @escapeNotVerified */ echo $formurl ?>" method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off">
+   <fieldset class="fieldset create account" data-hasrequired="<?php echo __('* Required Fields') ?>">
+		<div class="field my_attribute required">
+	    	<label for="mobilenumber" class="label"><span><?php echo __('Mobile Number (Example: +91813012123)') ?></span></label>
+	            <div class="control">
+	            	<input required="required" data-validate="{required:true, 'validate-number':true}" type="text" name="mobilenumber" id="mobilenumber" />
+	            </div>
+	     </div>
+	</fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit primary" title="<?php /* @escapeNotVerified */ echo __('Create an Account') ?>"><span><?php /* @escapeNotVerified */ echo __('Send OTP') ?></span></button>
+        </div>
+    </div>
+</form>
