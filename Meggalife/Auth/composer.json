@@ -1,0 +1,22 @@
+{
+    "name": "meggalife/module-auth",
+    "description": "Login with Meggalife",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "email": "info@ipragmatech.com",
+            "name": "Manish"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Meggalife\\Auth\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
