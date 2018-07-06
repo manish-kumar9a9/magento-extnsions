@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty"  xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+     <body>
+         <referenceContainer name="header.container" remove="true" />
+         <referenceContainer name="head" remove="true"/>
+         <referenceContainer name="header" remove="true"/>
+         <referenceContainer name="menu" remove="true"/>
+         <referenceContainer name="notifications" remove="true"/>
+         <referenceContainer name="footer" remove="true"/>
+
+
+         <referenceBlock name="header.container" remove="true" />
+         <referenceBlock name="footer.container" remove="true" />
+
+        <referenceContainer name="content">			
+			<block class="Meggalife\Auth\Block\Auth\Loginsuccess" name="auth_loginsuccess" template="auth/loginsuccess.phtml">
+			</block>
+        </referenceContainer>      
+    </body>
+</page>

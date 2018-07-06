@@ -35,10 +35,7 @@ define(
                 var meggaIframe = this.options.iframeId;
 
                 $(document).on('click', this.options.modalButton,  function(){
-                    console.log(meggaIframe);
-                    console.log(modalForm);
                     var src = $(meggaIframe).attr('data-src');
-                    //alert('clicked' + src);
                     $(meggaIframe).attr('src', src);
                     //Initialize modal
                     $(modalForm).modal(modalOption);

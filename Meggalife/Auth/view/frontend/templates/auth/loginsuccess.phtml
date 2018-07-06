@@ -1,0 +1,32 @@
+
+
+<?php
+/**
+ * Copyright © 2015 meggalifecommerce. All rights reserved.
+ */
+?>
+<?php
+/**
+ * {{controller}} {{action}} template
+ *
+ * @var $block \Meggalife\Auth\Block\Auth\Loginsuccess
+ */
+
+?>
+<br/>
+<div class="container list-group-item mt-20" >
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading"><?php echo __("Please wait a while.."); ?></h4>
+<!--        <p>--><?php //echo __("Congratulations! You have successfully logged in! You will be redirected in few seconds. If you see this message for more than 5 seconds, please click on the link below.")
+//            ; ?><!--</p>-->
+<!--        <hr>-->
+    </div>
+</div>
+<script>
+    $(function () {
+        var URL = '<?php echo $this->getUrl('customer/account') ?>';
+        setTimeout(function(){
+            window.top.location.href = URL;
+        }, 1000);
+    });
+</script>

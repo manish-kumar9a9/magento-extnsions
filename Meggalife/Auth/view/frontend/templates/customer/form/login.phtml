@@ -15,7 +15,8 @@
  * @license     http://wiki.plumrocket.net/wiki/EULA  End-user License Agreement
  */
 
-$meggalifeUrl = "https://dev.meggalife.com/";
+//$meggalifeUrl = "https://dev.meggalife.com/";
+$meggalifeUrl = $this->helper('Meggalife\Auth\Helper\Data')->getConfig('meggalife_auth/general/base_url');
 ?>
 
 <div class="block block-customer-login">
@@ -60,7 +61,7 @@ $meggalifeUrl = "https://dev.meggalife.com/";
 
     <div id="modal-form" style="display: none">
         <div class="meggalife-iframe">
-            <iframe  width="100%" height="600" id="megga-login-iframe" data-src="<?php echo $meggalifeUrl?>login" frameborder="0" allowfullscreen></iframe>
+            <iframe  width="100%" height="600" id="megga-login-iframe" data-src="<?php echo $meggalifeUrl?>ipseserver/authorize/client_id/meggamore@client/response_type/code/grant_type/authorization_code/state/session" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
     <a class="action open-modal-form login primary"
@@ -68,12 +69,17 @@ $meggalifeUrl = "https://dev.meggalife.com/";
        title="Login with Meggalife">
     <span><?php echo $block->escapeHtml(__('Login With Meggalife'))?></span>
     </a>
+    <a class="action signup primary"
+       href=<?php echo $meggalifeUrl."signup" ?>
+       title="Signup with Meggalife">
+        <span><?php echo $block->escapeHtml(__('Signup With Meggalife'))?></span>
+    </a>
     <script type="text/x-magento-init">
-    {
-        ".open-modal-form": {
-            "Meggalife_Auth/js/modal-form": {}
+        {
+            ".open-modal-form": {
+                "Meggalife_Auth/js/modal-form": {}
+            }
         }
-    }
-</script>
+    </script>
 </div>
 

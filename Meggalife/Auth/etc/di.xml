@@ -2,6 +2,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 	<preference for="Meggalife\Auth\Api\MeggaloginManagementInterface" type="Meggalife\Auth\Model\MeggaloginManagement"/>
 	<type name="Magento\Customer\Model\Registration">
-		<plugin name="MyStoreCustomerRegistrationDisable" type="Meggalife\Auth\Plugin\Customer\Model\RegistrationPlugin" />
+		<plugin name="MeggalifeRegistrationDisable" type="Meggalife\Auth\Plugin\Customer\Model\RegistrationPlugin" />
 	</type>
 </config>
