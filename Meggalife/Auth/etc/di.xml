@@ -4,4 +4,8 @@
 	<type name="Magento\Customer\Model\Registration">
 		<plugin name="MeggalifeRegistrationDisable" type="Meggalife\Auth\Plugin\Customer\Model\RegistrationPlugin" />
 	</type>
+	<preference for="Magento\Integration\Api\CustomerTokenServiceInterface" type="Meggalife\Auth\Model\CustomerTokenService" />
+	<preference for="Magento\Customer\Api\AccountManagementInterface" type="Meggalife\Auth\Model\AccountManagement" />
+	<preference for="Meggalife\Auth\Api\PointManagementInterface" type="Meggalife\Auth\Model\PointManagement" />
+	<preference for="Meggalife\Auth\Api\ForgetPasswordManagementInterface" type="Meggalife\Auth\Model\ForgetPasswordManagement" />
 </config>

@@ -6,4 +6,24 @@
 			<resource ref="anonymous"/>
 		</resources>
 	</route>
+
+	<!-- Routing define -->
+	<route url="/V1/meggalife/point" method="GET">
+		<service class="Meggalife\Auth\Api\PointManagementInterface" method="getPoint" />
+		<resources>
+			<resource ref="self" />
+		</resources>
+		<data>
+			<parameter name="customerId" force="true">%customer_id%</parameter>
+		</data>
+	</route>
+
+	<!-- Routing define -->
+	<route url="/V1/auth/forgetpassword" method="POST">
+		<service class="Meggalife\Auth\Api\ForgetPasswordManagementInterface" method="resetPassword" />
+		<resources>
+			<resource ref="anonymous" />
+		</resources>
+	</route>
+
 </routes>

@@ -101,7 +101,7 @@ class Login extends \Magento\Framework\App\Action\Action
         $userData = $this->fetchMeggaUser($params['phpsession'], $params['token']);
 
         //capture response
-        //$user = $userData['username'];
+        $userName = $userData['username'];
         //$name = $userData['displayname'];
         $firstName = $userData['first_name'];
         $lastName = $userData['last_name'];
@@ -134,12 +134,15 @@ class Login extends \Magento\Framework\App\Action\Action
                     $customerObj->setFirstname($firstName);
                     $customerObj->setLastname($lastName);
                     $customerObj->setPassword($password);
+                    $customerObj->setUserName($userName);
+                    $customerObj->setRecoveryEmail($email);
 
                     // Save data
                     $customerObj->save();
                     $customerObj->sendNewAccountEmail();
                     $this->messageManager->addSuccess(__('Congratulations! You have successfully logged In.'));
 
+                    $this->_customer->setWebsiteId($websiteId);
                     $customer = $this->_customer->loadByEmail($email);
                     $this->_customerSession->setCustomerAsLoggedIn($customer);
 
@@ -181,8 +184,6 @@ class Login extends \Magento\Framework\App\Action\Action
             $url = $baseurl."ipseserver/resource/?access_token=".$token."&phpSession=".$session;
             $logger->info( 'Curl URL:: '.$url );
 
-            //http://local.meggamore.com/sso/auth/login?phpsession=lq65dk8olcep53g2p9b38mtum0&token=55dcb9d4fbd37429ba2ea4ca122b3b815b7883f0
-            //$url = $meggaBaseUrl."ipseserver/resource/?access_token=".$token."&phpSession=".$session;
             $ch = curl_init();
             curl_setopt($ch,CURLOPT_URL,$url);
             curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -196,7 +197,8 @@ class Login extends \Magento\Framework\App\Action\Action
             curl_close($ch);
             $resultData = json_decode($output, true);
 
-            $logger->info(print_r($resultData,true));
+            $logger->info(json_encode((array)$output));
+            $logger->info(json_encode((array)$resultData));
 
             if( isset($resultData['error']) ){
                 $errMsg = $resultData['error'].' '.$resultData['error_description'];
